@@ -1,0 +1,12 @@
+pillow
+progressbar
+progressbar2
+requests
+pandas
+requests
+gunicorn
+flask
+flask-cors
+flask-restful
+matplotlib
+pymongo[srv]
