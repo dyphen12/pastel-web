@@ -5,7 +5,7 @@ requests
 pandas
 requests
 gunicorn
-flask
+flask==2.0.2
 flask-cors
 flask-restful
 matplotlib

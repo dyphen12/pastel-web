@@ -18,9 +18,9 @@ ca = certifi.where()
 
 #--------- MONGO DB IMPLEMENTATION -----------------
 
-snkclient = pymongo.MongoClient("mongodb+srv://vibradevop:tetas1@vibrauserscluster.utau1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", tlsCAFile=ca)
+snkclient = pymongo.MongoClient("mongodb+srv://dimensiondb:dimensionstrife1@usercluster0.msz2u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", tlsCAFile=ca)
 
-snkdb=snkclient['main']
+snkdb=snkclient['gametesters']
 snkcoll = snkdb['users']
 # Issue the serverStatus command and print the results
 
