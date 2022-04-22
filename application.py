@@ -88,11 +88,13 @@ class SignUp(Resource):
 
     def get(self, todo_id):
         query = json.loads(todo_id)
+        print(query)
+        uusername = query['results']['username']
         uname = query['results']['name']
         ulastname = query['results']['lastname']
         uemail = query['results']['email']
         upass = query['results']['password']
-        resulta = uhd.user_signup_ryzen(uname, ulastname, upass, uemail)
+        resulta = uhd.user_signup_ryzen(uusername, uname, ulastname, upass, uemail)
 
         return resulta
 

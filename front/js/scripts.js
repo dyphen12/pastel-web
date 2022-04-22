@@ -31,7 +31,7 @@ function getUsername(ssid) {
       } else {
         console.log('Sy')
 
-        document.getElementById("user-welcome").innerHTML = 'Saludos, ' + res;
+        document.getElementById("user-welcome").innerHTML = 'The great, ' + res;
       }
 
       }
@@ -107,26 +107,25 @@ function SignUpNow() {
 
     var std = "http://127.0.0.1:5000/signup/%";
 
-    var query = '{"results": {"name": "%","lastname": "#","email": "&","password": "$"}}'
+    var query = '{"results": {"username": "&","name": "%","lastname": "#","email": "&","password": "$"}}'
 
+    var signusername = document.getElementById("username").value;
     var signname = document.getElementById("name").value;
     var signlastname = document.getElementById("lastname").value;
     var signemail = document.getElementById("email").value;
     var signpassword = document.getElementById("signpassword").value;
 
     console.log(query);
-
-    var query1 = query.replace('%', signname);
+    var query0 = query.replace('&', signusername);
+    var query1 = query0.replace('%', signname);
     var query2 = query1.replace('#', signlastname);
     var query3 = query2.replace('&', signemail);
     var query4 = query3.replace('$', signpassword);
 
-    if (signname == '' || signlastname == '' || signemail == '' || signpassword == '' ) {
+    if (signusername == '' || signname == '' || signlastname == '' || signemail == '' || signpassword == '' ) {
 
         document.getElementById("signup-status").innerHTML = 'Fill the entire form';
         return true
-
-
 
     }
 
@@ -404,7 +403,7 @@ function getUsernameprofile(ssid) {
       } else {
         console.log('Sy')
 
-        document.getElementById("hello-user").innerHTML = 'Hola, ' + res;
+        document.getElementById("hello-user").innerHTML = 'Hi, ' + res;
       }
 
       }

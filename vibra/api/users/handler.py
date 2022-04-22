@@ -38,14 +38,14 @@ def user_login_ryzen(email, password):
     else:
         return 'User does not exist', False
 
-def user_signup_ryzen(name, lastname, password, email):
+def user_signup_ryzen(username, name, lastname, password, email):
 
     try:
         ids = random.randint(10000, 99999)
 
         # print(ids)
 
-        userdf = {'id': ids, 'name': name, 'lastname': lastname, 'password': password, 'email': email, 'type': 'citizen', 'payment': 0}
+        userdf = {'id': ids, 'username': username, 'name': name, 'lastname': lastname, 'password': password, 'email': email, 'type': 'citizen', 'payment': 0}
 
         # print(userdf)
 
@@ -72,7 +72,7 @@ def get_username_ryzen(ids):
 
     userobj = users.loc[users['id'] == ids]
 
-    usersname = userobj['name']
+    usersname = userobj['username']
 
     return usersname
 
