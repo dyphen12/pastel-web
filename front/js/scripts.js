@@ -177,7 +177,7 @@ function SignUpNow() {
 // Front: Called on Index
 function login() {
 
-    document.getElementById("login-message").innerHTML = 'Iniciando Sesión...';
+    document.getElementById("login-message").innerHTML = 'loading...';
 
     var x , y;
 
