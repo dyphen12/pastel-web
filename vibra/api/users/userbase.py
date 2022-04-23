@@ -42,6 +42,16 @@ def get_user_by_email(email):
 
     return result
 
+def get_user_by_username(email):
+
+    myquery2 = {"username": email}
+
+    resultcursor = list(snkcoll.find(myquery2))
+
+    result = pd.DataFrame(resultcursor)
+
+    return result
+
 def insert_user(userdict):
     x = snkcoll.insert_one(userdict)
     return x

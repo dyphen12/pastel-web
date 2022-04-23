@@ -20,16 +20,17 @@ import random
 # Ryzen Connection
 
 
-def user_login_ryzen(email, password):
+def user_login_ryzen(username, password):
 
-    userobj = userbase.get_user_by_email(email)
+    #userobj = userbase.get_user_by_email(email)
+    userobj = userbase.get_user_by_username(username)
 
     exist = len(userobj)
 
     if exist != 0:
         userobjpass = userobj['password'].values
         if userobjpass == password:
-            uname = userobj['name'].values
+            uname = userobj['username'].values
             # print('Welcome, {fname}'.format(fname=uname[0]))
             return userobj, True
         else:

@@ -550,6 +550,13 @@ a img{
   height: 176px;
   background: url('../images/emprendedores1.png') center / cover;
 }
+
+#download-card > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('../images/login-screenshot.jpg') center / cover;
+}
+
 .demo-card-wide > .mdl-card__menu {
   color: #fff;
 }
