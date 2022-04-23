@@ -1,12 +1,12 @@
-pillow
+pillow==9.0.1
 progressbar
 progressbar2
-requests
 pandas
-requests
+requests==2.27.1
 gunicorn
 flask==2.0.2
-flask-cors
-flask-restful
+flask-cors==3.0.10
+flask-restful==0.3.9
+Jinja2==3.0.3
 matplotlib
 pymongo[srv]
