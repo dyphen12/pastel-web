@@ -10,7 +10,6 @@ Made by Alexis W.
 
 """
 
-import pandas as pd
 import certifi
 import pymongo
 
@@ -25,30 +24,25 @@ snkcoll = snkdb['users']
 # Issue the serverStatus command and print the results
 
 
-def load_userbase_ryzen():
-    userscur = list(snkcoll.find({}))
-    # Calling DataFrame constructor on list
-    users = pd.DataFrame(userscur)
-    return users
-
-
 def get_user_by_email(email):
 
     myquery2 = {"email": email}
 
     resultcursor = list(snkcoll.find(myquery2))
 
-    result = pd.DataFrame(resultcursor)
+    #print(resultcursor)
+
+    result = resultcursor
 
     return result
 
-def get_user_by_username(email):
+def get_user_by_username(username):
 
-    myquery2 = {"username": email}
+    myquery2 = {"username": username}
 
     resultcursor = list(snkcoll.find(myquery2))
 
-    result = pd.DataFrame(resultcursor)
+    result = resultcursor
 
     return result
 
@@ -62,7 +56,7 @@ def get_user_by_id(ssid):
 
     resultcursor = list(snkcoll.find(myquery2))
 
-    result = pd.DataFrame(resultcursor)
+    result = resultcursor
 
     return result
 

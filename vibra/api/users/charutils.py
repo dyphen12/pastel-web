@@ -12,7 +12,6 @@ Made by Alexis W.
 
 """
 
-import pandas as pd
 import certifi
 import pymongo
 import random
@@ -28,20 +27,13 @@ snkcoll = snkdb['characters']
 # Issue the serverStatus command and print the results
 
 
-def load_char_database():
-    userscur = list(snkcoll.find({}))
-    # Calling DataFrame constructor on list
-    users = pd.DataFrame(userscur)
-    return users
-
-
 def get_char_by_email(email):
 
     myquery2 = {"email": email}
 
     resultcursor = list(snkcoll.find(myquery2))
 
-    result = pd.DataFrame(resultcursor)
+    result = resultcursor
 
     return result
 
@@ -51,23 +43,13 @@ def get_chars_by_owner(owner):
 
     resultcursor = list(snkcoll.find(myquery2))
 
-    result = pd.DataFrame(resultcursor)
+    result = resultcursor
 
     return result
 
 def insert_char(userdict):
     x = snkcoll.insert_one(userdict)
     return x
-
-def get_user_by_id(ssid):
-
-    myquery2 = {"id": ssid}
-
-    resultcursor = list(snkcoll.find(myquery2))
-
-    result = pd.DataFrame(resultcursor)
-
-    return result
 
 
 def char_by_id(ssid):
@@ -105,8 +87,6 @@ def update_char(ssid, portfolio):
 
 
 def create_char(chartoken):
-
-
 
     try:
 

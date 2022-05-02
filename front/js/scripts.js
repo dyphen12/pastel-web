@@ -1,6 +1,6 @@
-// --------- STOCKDOTSHOP ----------
+// --------- DIMENSION STRIFE ----------
 
-// These are the functions of the main Stockdotshop app
+// These are the functions of the main Dimension Strife web app
 // Status: Under Development
 // Note: Fixes for organization a better standard resourcing of functions
 
@@ -140,13 +140,23 @@ function SignUpNow() {
 
 
 
-      if (res == 'User Already Registered'){
+      if (res == '889'){
+
         console.log(res)
 
+        document.getElementById("signup-status").innerHTML = 'Email already registered';
 
+      }
 
+      else if (res == "890"){
 
-      } else {
+        console.log(res)
+
+        document.getElementById("signup-status").innerHTML = 'Username already registered';
+
+      }
+      else
+      {
 
       document.getElementById("signup-status").innerHTML = 'Eureka!';
 
@@ -204,12 +214,17 @@ function login() {
 
 
 
-      if (res == 'fail'){
+      if (res == 'pass'){
         // document.getElementById("demo").innerHTML = 'Wrong password or username';
 
-        document.getElementById("signup-message").innerHTML = 'Usuario u contraseña incorrectos';
+        document.getElementById("login-message").innerHTML = 'wrong password';
 
-      } else {
+      } else if (res == "user")
+      {
+        document.getElementById("login-message").innerHTML = 'wrong user';
+      }
+
+      else {
         // document.getElementById("demo").innerHTML = 'Succesfully Logged in';
         var cookiephrase = 'ssid=';
         var ssidcookie = cookiephrase + res;

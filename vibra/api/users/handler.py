@@ -25,19 +25,16 @@ def user_login_ryzen(username, password):
     #userobj = userbase.get_user_by_email(email)
     userobj = userbase.get_user_by_username(username)
 
-    exist = len(userobj)
-
-    if exist != 0:
-        userobjpass = userobj['password'].values
+    if userobj:
+        userobjpass = userobj[0]['password']
         if userobjpass == password:
-            uname = userobj['username'].values
+            uname = userobj[0]['username']
             # print('Welcome, {fname}'.format(fname=uname[0]))
             return userobj, True
         else:
-            return 'Wrong Password', False
-
+            return 'pass', False
     else:
-        return 'User does not exist', False
+        return 'user', False
 
 def user_signup_ryzen(username, name, lastname, password, email):
 
@@ -50,18 +47,26 @@ def user_signup_ryzen(username, name, lastname, password, email):
 
         # print(userdf)
 
+        usersq = userbase.get_user_by_username(username)
         emailsq = userbase.get_user_by_email(email)
 
-        if emailsq.empty:
+        print(usersq)
+        print(type(emailsq))
 
-            #print('jue')
+        if emailsq:
+            print("fuc")
+            #Email exists
+            return '889'
 
-            userbase.insert_user(userdf)
 
-            return ids
+        elif usersq:
+            #Username Exists
+            return "890"
 
         else:
-            return 'User Already Registered'
+            userbase.insert_user(userdf)
+            return ids
+
 
     except Exception as e:
         #print(e)
@@ -69,13 +74,17 @@ def user_signup_ryzen(username, name, lastname, password, email):
 
 def get_username_ryzen(ids):
 
-    users = userbase.get_user_by_id(ids)
+    user = userbase.get_user_by_id(ids)
 
-    userobj = users.loc[users['id'] == ids]
+    print(len(user))
 
-    usersname = userobj['username']
+    username = user[0]['username']
 
-    return usersname
+    #userobj = user.loc[users['id'] == ids]
+
+    #usersname = userobj['username']
+
+    return username
 
 
 

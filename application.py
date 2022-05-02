@@ -137,22 +137,12 @@ class Login(Resource):
 
         x, auth = uhd.user_login_ryzen(token['user'],token['pass'])
 
-        try:
-
-            ids = x['id'].values[0]
-
-
-
+        if auth is True:
+            ids = x[0]['id']
             ssid = ids
-            #print('auth success')
-
             return int(ssid)
-
-
-        except TypeError:
-            ids = 0
-            print('auth failed')
-            return 'fail'
+        else:
+            return x
 
 
 api.add_resource(Login, '/auth')
@@ -164,7 +154,7 @@ class getuserName(Resource):
 
         x = uhd.get_username_ryzen(int(todo_id))
 
-        return x.values[0]
+        return x
 
 
 api.add_resource(getuserName, '/user/<string:todo_id>')
@@ -174,13 +164,15 @@ class SignUp(Resource):
 
     def get(self, todo_id):
         query = json.loads(todo_id)
-        print(query)
+        #print(query)
         uusername = query['results']['username']
         uname = query['results']['name']
         ulastname = query['results']['lastname']
         uemail = query['results']['email']
         upass = query['results']['password']
         resulta = uhd.user_signup_ryzen(uusername, uname, ulastname, upass, uemail)
+
+        print(resulta)
 
         return resulta
 
