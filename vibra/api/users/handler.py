@@ -1,10 +1,10 @@
 """
 
-Prisma Inc.
+Tensoreal Games.
 
 handler.py
 
-Status: UNDER DEVELOPMENT for Major Update Ryzen
+Status: Working
 
 Made by Alexis W.
 
@@ -46,7 +46,7 @@ def user_signup_ryzen(username, name, lastname, password, email):
 
         # print(ids)
 
-        userdf = {'id': ids, 'username': username, 'name': name, 'lastname': lastname, 'password': password, 'email': email, 'type': 'citizen', 'payment': 0}
+        userdf = {'id': ids, 'username': username, 'name': name, 'lastname': lastname, 'password': password, 'email': email, 'type': 'player', 'payment': 0, 'quantums': 0}
 
         # print(userdf)
 

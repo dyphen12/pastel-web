@@ -1,6 +1,6 @@
 """
 
-Prisma Inc. 2022
+Tensoreal Games.
 
 core.py
 
@@ -52,5 +52,5 @@ def load_config():
 
 
 def api_version():
-    version = '0.0.1'
+    version = '0.3'
     return version

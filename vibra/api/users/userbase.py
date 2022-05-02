@@ -1,10 +1,10 @@
 """
 
-Prisma Inc.
+Tensoreal Games.
 
 userbase.py
 
-Status: UNDER DEVELOPMENT for Major Update Ryzen
+Status: working
 
 Made by Alexis W.
 
