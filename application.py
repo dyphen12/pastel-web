@@ -247,6 +247,17 @@ class getCharbyID(Resource):
 api.add_resource(getCharbyID, '/char_by_id/<string:todo_id>')
 
 
+class getCharsbyUser(Resource):
+
+    def get(self, todo_id):
+
+        x = char.get_chars_by_owner(todo_id)
+
+        return x
+
+
+api.add_resource(getCharsbyUser, '/chars_by_owner/<string:todo_id>')
+
 if __name__ == '__main__':
 #    #app.run(host=os.getenv('IP', '0.0.0.0'), port=int(os.getenv('PORT', 8080)))
     app.run()

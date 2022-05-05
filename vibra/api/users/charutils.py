@@ -39,13 +39,26 @@ def get_char_by_email(email):
 
 def get_chars_by_owner(owner):
 
-    myquery2 = {"username": owner}
+    myquery2 = {"owner": owner}
 
     resultcursor = list(snkcoll.find(myquery2))
 
     result = resultcursor
 
-    return result
+    print(result)
+
+    characters = []
+
+    for char in result:
+        #char.pop("_id")
+        characters.append(char["charid"])
+
+    print(characters)
+
+    if len(characters) == 0:
+        return "empty"
+
+    return characters
 
 def insert_char(userdict):
     x = snkcoll.insert_one(userdict)
