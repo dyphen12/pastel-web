@@ -258,6 +258,19 @@ class getCharsbyUser(Resource):
 
 api.add_resource(getCharsbyUser, '/chars_by_owner/<string:todo_id>')
 
+
+
+class getUserCharStamp(Resource):
+
+    def get(self, todo_id):
+
+        x = char.get_char_stamp_for_user(todo_id)
+
+        return x
+
+
+api.add_resource(getUserCharStamp, '/stamp/<string:todo_id>')
+
 if __name__ == '__main__':
 #    #app.run(host=os.getenv('IP', '0.0.0.0'), port=int(os.getenv('PORT', 8080)))
     app.run()

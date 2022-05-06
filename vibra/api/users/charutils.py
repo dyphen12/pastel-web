@@ -15,6 +15,7 @@ Made by Alexis W.
 import certifi
 import pymongo
 import random
+from vibra.api.users import userbase as udb
 
 ca = certifi.where()
 
@@ -71,6 +72,8 @@ def char_by_id(ssid):
 
     resultcursor = list(snkcoll.find(myquery2))
 
+    print(resultcursor)
+
     print(type(resultcursor[0]))
 
     resultcursor[0].pop("_id")
@@ -103,8 +106,6 @@ def create_char(chartoken):
 
     try:
 
-        ids = random.randint(10000, 99999)
-
         print(chartoken)
         print(type(chartoken))
 
@@ -120,6 +121,17 @@ def create_char(chartoken):
         return('Something goes bad')
 
 
+
+def check_char_id(ids):
+
+    myquery2 = {"charid": ids}
+
+    resultcursor = list(snkcoll.find(myquery2))
+
+    return resultcursor
+
+
+
 def get_char_by_id(ids):
 
     chars = char_by_id(ids)
@@ -133,4 +145,30 @@ def get_char_by_id(ids):
     chardata.pop("_id")
 
     return chardata
+
+def get_char_stamp_for_user(username):
+
+    user = udb.get_user_by_username(username)
+
+    user[0].pop("_id")
+
+    finded = False
+
+    while finded is False:
+        ids = random.randint(100000, 999999)
+        test2 = check_char_id(ids)
+        if test2:
+            print("char id exist")
+            finded = False
+        else:
+            finded = True
+            charid = ids
+
+    print(user)
+
+    userstamp = {'charid': charid, 'username': username, 'email': user[0]['email']}
+
+    print(userstamp)
+
+    return userstamp
 
